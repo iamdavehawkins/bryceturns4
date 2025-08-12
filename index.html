@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bryce's 4th Birthday Party!</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #ffffff;
+            color: #333333;
+            margin: 0;
+            padding: 15px;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #ff8c00; /* Construction orange */
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #ffd700; /* Construction yellow accent */
+        }
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .party-details {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #ff8c00;
+        }
+        .photo-grid {
+            column-count: 1;
+            column-gap: 10px;
+            margin-bottom: 20px;
+        }
+        /* Tablet styles */
+        @media (min-width: 481px) {
+            body {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.6em;
+            }
+            .party-details {
+                padding: 18px;
+                margin-bottom: 25px;
+            }
+            .photo-grid {
+                column-count: 2;
+                column-gap: 12px;
+            }
+        }
+        /* Desktop styles */
+        @media (min-width: 769px) {
+            body {
+                font-size: 18px;
+            }
+            h1 {
+                font-size: 2.5em;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            .container {
+                max-width: 800px;
+            }
+            .party-details {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+            .photo-grid {
+                column-count: 3;
+                column-gap: 15px;
+            }
+        }
+        .photo-item {
+            break-inside: avoid;
+            margin-bottom: 10px;
+            overflow: hidden;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .photo-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* Enable hover effects only on devices that support hover */
+        @media (hover: hover) {
+            .photo-item img {
+                transition: transform 0.3s ease;
+            }
+            .photo-item img:hover {
+                transform: scale(1.05);
+            }
+        }
+        /* Tablet and desktop adjustments */
+        @media (min-width: 481px) {
+            .photo-item {
+                margin-bottom: 12px;
+                border-radius: 7px;
+            }
+        }
+        @media (min-width: 769px) {
+            .photo-item {
+                margin-bottom: 15px;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            }
+        }
+        .rsvp-form {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #ffd700;
+        }
+        .rsvp-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        /* Tablet and desktop adjustments */
+        @media (min-width: 481px) {
+            .rsvp-form {
+                padding: 18px;
+                border-radius: 9px;
+                margin-bottom: 25px;
+            }
+            .rsvp-form form {
+                gap: 14px;
+            }
+        }
+        @media (min-width: 769px) {
+            .rsvp-form {
+                padding: 20px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            }
+            .rsvp-form form {
+                gap: 15px;
+            }
+        }
+        .rsvp-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .rsvp-form input,
+        .rsvp-form textarea,
+        .rsvp-form select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            box-sizing: border-box;
+        }
+        .rsvp-form button {
+            background-color: #ff8c00;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        .rsvp-form button:hover {
+            background-color: #e67e00;
+        }
+        .location {
+            margin-bottom: 20px;
+        }
+        .location iframe {
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        /* Tablet and desktop adjustments */
+        @media (min-width: 481px) {
+            .location {
+                margin-bottom: 25px;
+            }
+            .location iframe {
+                height: 350px;
+                border-radius: 9px;
+            }
+        }
+        @media (min-width: 769px) {
+            .location {
+                margin-bottom: 30px;
+            }
+            .location iframe {
+                height: 400px;
+                border-radius: 10px;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            }
+        }
+        .construction-emoji {
+            font-size: 1.1em;
+            margin: 0 3px;
+        }
+        .header-image {
+            margin: 15px 0;
+        }
+        .header-image img {
+            max-width: 180px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        /* Tablet and desktop adjustments */
+        @media (min-width: 481px) {
+            .construction-emoji {
+                font-size: 1.15em;
+                margin: 0 4px;
+            }
+            .header-image {
+                margin: 18px 0;
+            }
+            .header-image img {
+                max-width: 190px;
+                border-radius: 7px;
+            }
+        }
+        @media (min-width: 769px) {
+            .construction-emoji {
+                font-size: 1.2em;
+                margin: 0 5px;
+            }
+            .header-image {
+                margin: 20px 0;
+            }
+            .header-image img {
+                max-width: 200px;
+                border-radius: 8px;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            }
+        }
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #999999;
+            font-size: 0.85em;
+            padding: 15px 0;
+            border-top: 1px solid #eee;
+        }
+        /* Tablet and desktop adjustments */
+        @media (min-width: 481px) {
+            footer {
+                margin-top: 40px;
+                font-size: 0.87em;
+                padding: 18px 0;
+            }
+        }
+        @media (min-width: 769px) {
+            footer {
+                margin-top: 50px;
+                font-size: 0.9em;
+                padding: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚧 Bryce Turns 4! 🚧</h1>
+            <p>Join us for a construction-themed birthday celebration!</p>
+            <div class="header-image">
+                <img src="images/brycesunglasses.jpg" alt="Bryce with sunglasses">
+            </div>
+        </header>
+
+        <div class="party-details">
+            <h2><span class="construction-emoji">🏗️</span> Party Details <span class="construction-emoji">⚒️</span></h2>
+            <p><strong>Date:</strong> Sunday, September 14th 2025</p>
+            <p><strong>Time:</strong> 3:30-5pm</p>
+            <p><strong>Location:</strong> Kids Dig<br>
+               <a href="https://maps.app.goo.gl/9j3hRWaAJdfq2whe6" target="_blank" style="color: #ff8c00; text-decoration: none;">8601 W Cross Dr Unit B6-1, Littleton, CO 80123</a></p>
+        </div>
+
+        <div class="rsvp-form">
+            <h2><span class="construction-emoji">📋</span> RSVP</h2>
+            <form action="https://formspree.io/f/myzpodvl" method="POST">
+                <div>
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="attending">Will you be attending?</label>
+                    <select id="attending" name="attending" required>
+                        <option value="">Please select</option>
+                        <option value="yes">Yes, we'll be there!</option>
+                        <option value="no">Sorry, we can't make it</option>
+                        <option value="maybe">Maybe (we'll confirm later)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="guests">Number of guests (including yourself):</label>
+                    <input type="number" id="guests" name="guests" min="1" max="10">
+                </div>
+                <div>
+                    <label for="message">Message (food allergies, etc.):</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit">Send RSVP <span class="construction-emoji">🔨</span></button>
+            </form>
+        </div>
+
+        <div class="location">
+            <h2><span class="construction-emoji">📍</span> Location</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7795.857889743499!2d-105.09629770000001!3d39.6154721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b7f10fcfb69db%3A0x8f8df2a68046710a!2sKids%20Dig!5e1!3m2!1sen!2sus!4v1755024745066!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="photo-grid">
+            <div class="photo-item">
+                <img src="images/brycebikebreck.jpg" alt="Bryce biking in Breckenridge">
+            </div>
+            <div class="photo-item">
+                <img src="images/bryceboatbeach.jpg" alt="Bryce at the beach with boat">
+            </div>
+            <div class="photo-item">
+                <img src="images/bryceboatbeach2.jpg" alt="Bryce at the beach">
+            </div>
+            <div class="photo-item">
+                <img src="images/brycedeckmichigania.jpg" alt="Bryce on deck at Michigania">
+            </div>
+            <div class="photo-item">
+                <img src="images/brycefitz.jpg" alt="Bryce with Fitz">
+            </div>
+            <div class="photo-item">
+                <img src="images/brycehorse.jpg" alt="Bryce with horse">
+            </div>
+            <div class="photo-item">
+                <img src="images/bryceomena.jpg" alt="Bryce in Omena">
+            </div>
+            <div class="photo-item">
+                <img src="images/brycepoolchair.jpg" alt="Bryce in pool chair">
+            </div>
+            <div class="photo-item">
+                <img src="images/brycethrowrock.jpg" alt="Bryce throwing rock">
+            </div>
+        </div>
+
+        <footer>
+            &copy; <script>document.write(new Date().getFullYear());</script> Dave Hawkins | <a href="https://links.iamdavehawkins.com" style="color: #999999; text-decoration: none;">links.iamdavehawkins.com</a>
+        </footer>
+    </div>
+</body>
+</html>
