@@ -322,8 +322,12 @@
                     </select>
                 </div>
                 <div>
-                    <label for="guests">Number of guests (including yourself):</label>
-                    <input type="number" id="guests" name="guests" min="1" max="10">
+                    <label for="adults">Number of adults:</label>
+                    <input type="number" id="adults" name="adults" min="1" max="10" required>
+                </div>
+                <div>
+                    <label for="children">Number of children:</label>
+                    <input type="number" id="children" name="children" min="0" max="10" required>
                 </div>
                 <div>
                     <label for="message">Message (food allergies, etc.):</label>
