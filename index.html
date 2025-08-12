@@ -258,6 +258,55 @@
                 box-shadow: 0 3px 10px rgba(0,0,0,0.1);
             }
         }
+        .waiver-info {
+            background-color: #fff3e0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #ff5722;
+        }
+        .waiver-info h2 {
+            color: #ff5722;
+        }
+        .waiver-info a {
+            color: #ff5722;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .waiver-info a:hover {
+            text-decoration: underline;
+        }
+        .waiver-info ul {
+            list-style-type: none;
+            padding-left: 5px;
+            margin-top: 10px;
+        }
+        .waiver-info li {
+            margin-bottom: 8px;
+        }
+        /* Tablet and desktop adjustments */
+        @media (min-width: 481px) {
+            .waiver-info {
+                padding: 18px;
+                border-radius: 9px;
+                margin-bottom: 25px;
+            }
+            .waiver-info ul {
+                padding-left: 10px;
+            }
+        }
+        @media (min-width: 769px) {
+            .waiver-info {
+                padding: 20px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+            }
+            .waiver-info ul {
+                padding-left: 15px;
+            }
+        }
+        
         footer {
             margin-top: 30px;
             text-align: center;
@@ -299,6 +348,15 @@
             <p><strong>Time:</strong> 3:30-5pm</p>
             <p><strong>Location:</strong> Kids Dig<br>
                <a href="https://maps.app.goo.gl/9j3hRWaAJdfq2whe6" target="_blank" style="color: #ff8c00; text-decoration: none;">8601 W Cross Dr Unit B6-1, Littleton, CO 80123</a></p>
+        </div>
+
+        <div class="waiver-info">
+            <h2><span class="construction-emoji">📃</span> Venue Waiver</h2>
+            <p>In order to maximize the amount of time you spend having fun, please fill out <a href="https://thekidsdig.com/liability-waiver/" target="_blank">this waiver</a> ahead of time.</p>
+            <ul>
+                <li>Each adult needs their own waiver</li>
+                <li>Children should be included on an adult's waiver</li>
+            </ul>
         </div>
 
         <div class="rsvp-form">
